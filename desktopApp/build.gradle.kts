@@ -109,10 +109,7 @@ sourceSets.main { kotlin.srcDir(generateBuildConfig.map { buildConfigOutputDir }
 // static .pro files referenced below.
 
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(25))
-        vendor.set(JvmVendorSpec.JETBRAINS)
-    }
+    jvmToolchain { languageVersion.set(JavaLanguageVersion.of(25)) }
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_25)
         jvmDefault.set(JvmDefaultMode.NO_COMPATIBILITY)
@@ -140,10 +137,7 @@ compose.desktop {
         // under the Gradle JVM, and every Build Desktop leg goes red with the jmods-less signature.
         javaHome =
             javaToolchains
-                .launcherFor {
-                    languageVersion.set(JavaLanguageVersion.of(25))
-                    vendor.set(JvmVendorSpec.JETBRAINS)
-                }
+                .launcherFor { languageVersion.set(JavaLanguageVersion.of(25)) }
                 .get()
                 .metadata
                 .installationPath
